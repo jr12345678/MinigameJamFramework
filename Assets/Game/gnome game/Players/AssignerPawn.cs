@@ -77,7 +77,7 @@ namespace GnomeGame {
 
         protected override void OnActionReleased(InputAction.CallbackContext context) {
             if (IsRobot()) {
-                if (context.action.name == PawnAction.ButtonB) {
+                if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
                    robot.SetSpraying(false);
                 }
             }
