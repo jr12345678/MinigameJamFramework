@@ -10,6 +10,7 @@ namespace Starter.Basic {
         
         void Update() {
             // TODO: Implement movement
+       
         }
 
         protected override void OnActionPressed(InputAction.CallbackContext context) {
