@@ -41,6 +41,7 @@ namespace GnomeGame {
         public void GnomeDeath(int pawnIndex) {
             // Give each knocked out gnome the next-worst rank
             _ranking[pawnIndex] = PlayerManager.GetNumPlayers() - deaths;
+            _pawns[pawnIndex].isDead = true;
             deaths += 1;
             // Once all gnomes have died, end the game for a robot victory
             if (deaths == PlayerManager.GetNumPlayers() - 1) {
@@ -52,18 +53,17 @@ namespace GnomeGame {
             // If the timer ended, assign new rankings based on player type
             if (timer <= 0.0) {
                 for (int i = 0; i < PlayerManager.GetNumPlayers(); i++) {
-                    // Player is a surviving gnome and gets first place
-                    if (_pawns[i].IsGnome()) {
-                        _ranking[i] = 1;
-                    }
                     // Player is the robot, and gets last because the timer ran out
-                    else if (_pawns[i].IsRobot()) {
+                    if (_pawns[i].IsRobot()) {
                         _ranking[i] = PlayerManager.GetNumPlayers();
                     } 
-                    // Player was formerly a gnome that was killed and made null
-                    // Their ranking should be changed by 1 to be better than the robot
-                    else {
+                    // Player is a dead gnome, their ranking should be changed by 1 to be better than the robot
+                    else if (_pawns[i].isDead) {
                         _ranking[i] -= 1;
+                    }
+                    // Player is a surviving gnome and gets first place
+                    else {
+                        _ranking[i] = 1;
                     }
                 }
             } 

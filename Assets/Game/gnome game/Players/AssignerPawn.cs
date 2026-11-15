@@ -15,6 +15,8 @@ namespace GnomeGame {
         Robot robot = null;
         public bool IsRobot() { return robot != null; }
 
+        public bool isDead = false;
+
         // Placement Parameters
         [SerializeField] Vector3 leftmostGnomePlacement;
         [SerializeField] float gnomePlacementOffset = 2.5f;

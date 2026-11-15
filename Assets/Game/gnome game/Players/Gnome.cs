@@ -23,8 +23,7 @@ namespace GnomeGame {
 
         public void SetPlayerColor(int playerIndex) {
             Color[] playerColors = new Color[] { Color.blue, Color.red, Color.green, Color.yellow };
-
-            // TODO update color indicator in some way
+            
             outlineSprite.color = playerColors[playerIndex];
 
             pawnIndex = playerIndex;
@@ -74,7 +73,7 @@ namespace GnomeGame {
         //Kills and removes a gnome
         private void Die() {
             manager.GnomeDeath(pawnIndex);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
