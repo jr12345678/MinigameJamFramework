@@ -51,29 +51,31 @@ namespace GnomeGame {
         // hands off input to the relevant embodiment
         protected override void OnActionPressed(InputAction.CallbackContext context) {
             // Gnome input passing
-            if (IsGnome()) {
-                // movement logic
-                if (context.action.name == PawnAction.Move) {
-                    Vector2 moveInput = context.ReadValue<Vector2>();
-                    gnome.SetMovement(moveInput);
-                }
+            if (!isDead) {
+                if (IsGnome()) {
+                    // movement logic
+                    if (context.action.name == PawnAction.Move) {
+                        Vector2 moveInput = context.ReadValue<Vector2>();
+                        gnome.SetMovement(moveInput);
+                    }
 
-                // Jump detection
-                if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
-                    gnome.TriggerJump();
-                }
-            }
-            else if (IsRobot()) // check if explicitly in case we are waiting to be assigned
-            {
-                // movement logic
-                if (context.action.name == PawnAction.Move) {
-                    Vector2 moveInput = context.ReadValue<Vector2>();
-                    robot.SetMovement(moveInput);
-                }
+                    // Jump detection
+                    if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
+                        gnome.TriggerJump();
+                    }
+                } 
+                else if (IsRobot()) // check if explicitly in case we are waiting to be assigned
+                {
+                    // movement logic
+                    if (context.action.name == PawnAction.Move) {
+                        Vector2 moveInput = context.ReadValue<Vector2>();
+                        robot.SetMovement(moveInput);
+                    }
 
-                // handle spraying pressed down
-                if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
-                    robot.SetSpraying(true);
+                    // handle spraying pressed down
+                    if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
+                        robot.SetSpraying(true);
+                    }
                 }
             }
         }
