@@ -6,6 +6,7 @@ namespace GnomeGame {
         // Parameters
         [SerializeField] private float jumpForce = 6;
         [SerializeField] private float moveSpeed = 2;
+        [SerializeField] private SpriteRenderer outlineSprite;
 
         // Movement logic
         bool grounded = true;
@@ -24,6 +25,7 @@ namespace GnomeGame {
             Color[] playerColors = new Color[] { Color.blue, Color.red, Color.green, Color.yellow };
 
             // TODO update color indicator in some way
+            outlineSprite.color = playerColors[playerIndex];
 
             pawnIndex = playerIndex;
         }

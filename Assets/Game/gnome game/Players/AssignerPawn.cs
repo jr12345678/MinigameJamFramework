@@ -27,7 +27,7 @@ namespace GnomeGame {
         /// </summary>
         /// <param name="robotIndex">the playerIndex of whoever is assigned robot</param>
         public void AssignPlayerType(int robotIndex) {
-            if (robotIndex != playerIndex)
+            if (robotIndex == playerIndex) // TODO: FIX THIS, INVERTED FOR TESTING PURPOSES
             { // Assigned a gnome!
                 gnome = Instantiate(gnomePrefab, transform).GetComponent<Gnome>();
                 // gnome placement logic
