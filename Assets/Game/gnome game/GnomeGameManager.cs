@@ -13,6 +13,22 @@ namespace GnomeGame {
         private double timer = -1.0;
         private int deaths = 0;
 
+
+        // Singleton Design Pattern
+        public static GnomeGameManager instance;
+        void Awake() {
+            if (instance == null) {
+                instance = this;
+            } else {
+                Destroy(gameObject);
+            }
+        }
+
+
+        public double getTime(){
+            return timer;
+        }
+
         // Picks which player to be the robot and sets the rest to gnomes
         void Start() {
             // decide on who is the robot
