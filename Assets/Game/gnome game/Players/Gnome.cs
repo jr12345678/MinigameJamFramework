@@ -12,14 +12,20 @@ namespace GnomeGame {
         Rigidbody p;
         Vector2 moveInput = Vector2.zero;
 
+        private GnomeGameManager manager;
+        private int pawnIndex;
+
         void Start() {
             p = GetComponent<Rigidbody>();
+            manager = FindAnyObjectByType<GnomeGameManager>();
         }
 
         public void SetPlayerColor(int playerIndex) {
             Color[] playerColors = new Color[] { Color.blue, Color.red, Color.green, Color.yellow };
 
             // TODO update color indicator in some way
+
+            pawnIndex = playerIndex;
         }
 
 // =====================================================================================================
@@ -43,9 +49,14 @@ namespace GnomeGame {
 // =====================================================================================================
         // Handles grounded detection for gnomes
         // Ground layer is 10
+        // Additionally should respond to being hit by water
+        // Water should be on layer 15 "Projectile"
         void OnCollisionEnter(Collision collision) {
             if (collision.gameObject.layer == 10) {
                 grounded = true;
+            }
+            if (collision.gameObject.layer == 15) {
+                Die();
             }
         }
 
@@ -55,6 +66,13 @@ namespace GnomeGame {
             if (collision.gameObject.layer == 10) {
                 grounded = false;
             }
+        } 
+        
+// =====================================================================================================
+        //Kills and removes a gnome
+        private void Die() {
+            manager.GnomeDeath(pawnIndex);
+            Destroy(this);
         }
     }
 }
