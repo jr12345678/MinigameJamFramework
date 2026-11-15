@@ -1610,6 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226086161}
   - component: {fileID: 1226086162}
+  - component: {fileID: 1226086163}
   m_Layer: 0
   m_Name: Nozzle
   m_TagString: Untagged
@@ -1692,6 +1693,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1226086163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226086160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74b5048699c04644bd8d5e62ae5137b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GnomeGame.ballspawner
 --- !u!1 &1274348194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssignerPawn (P3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8281073709633436814, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
+      propertyPath: robotPrefab
+      value: 
+      objectReference: {fileID: 4260975914589935014, guid: 9179aab07ded8ca4a86ae17210712075, type: 3}
     - target: {fileID: 8699965733391615786, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1897,6 +1914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssignerPawn (P4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8281073709633436814, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
+      propertyPath: robotPrefab
+      value: 
+      objectReference: {fileID: 4260975914589935014, guid: 9179aab07ded8ca4a86ae17210712075, type: 3}
     - target: {fileID: 8699965733391615786, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2510,6 +2531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssignerPawn (P2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8281073709633436814, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
+      propertyPath: robotPrefab
+      value: 
+      objectReference: {fileID: 4260975914589935014, guid: 9179aab07ded8ca4a86ae17210712075, type: 3}
     - target: {fileID: 8699965733391615786, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2578,6 +2603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssignerPawn (P1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8281073709633436814, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
+      propertyPath: robotPrefab
+      value: 
+      objectReference: {fileID: 4260975914589935014, guid: 9179aab07ded8ca4a86ae17210712075, type: 3}
     - target: {fileID: 8699965733391615786, guid: bd62bffcf8c7c004ab430817d35f52ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

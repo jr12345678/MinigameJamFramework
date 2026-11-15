@@ -1,5 +1,6 @@
 using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
 using System.Timers;
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 
@@ -9,10 +10,14 @@ namespace GnomeGame {
         // Parameters
         [SerializeField] private float moveSpeed = 2;
 
+        [SerializeField] private float ballSpeed = 2;
+
         // References
         [SerializeField] SpriteRenderer crosshairSprite;
 
         SprayTimer t;
+
+        public GameObject b;
 
         // Movement logic
         Rigidbody p;
@@ -21,9 +26,11 @@ namespace GnomeGame {
         // Spraying logic
         bool spraying = false;
 
+
         void Start() {
             p = GetComponent<Rigidbody>();
             t = GetComponent<SprayTimer>();
+            
         }
 
         public void SetPlayerColor(int playerIndex) {
@@ -40,7 +47,8 @@ namespace GnomeGame {
 
             if (spraying) {
                 if (!t.ticking) {
-                    print("baller");
+                    print(ballspawner.getPosition());
+                    shoot();
                     t.startTimer();
                 }
             }
@@ -54,6 +62,14 @@ namespace GnomeGame {
         // sets spraying boolean
         public void SetSpraying(bool setTo = true) {
             spraying = setTo;
+        }
+
+        void shoot() {
+            GameObject ball = GameObject.Instantiate(b, ballspawner.getPosition(), this.transform.rotation) as GameObject;
+
+            Rigidbody rb = ball.GetComponent("Rigidbody") as Rigidbody;
+            rb.AddForce((transform.position - rb.transform.position).normalized*ballSpeed);
+            print(ball);
         }
     }
 }

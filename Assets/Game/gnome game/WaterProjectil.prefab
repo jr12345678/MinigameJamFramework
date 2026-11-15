@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6557667683272576265}
   - component: {fileID: 6853769968703672623}
   - component: {fileID: 522013445087831108}
+  - component: {fileID: 2998520003434829844}
   m_Layer: 15
   m_Name: WaterProjectil
   m_TagString: Untagged
@@ -114,3 +115,30 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3203125
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2998520003434829844
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463245108973417856}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 32768
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
