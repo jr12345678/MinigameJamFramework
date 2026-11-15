@@ -10,7 +10,7 @@ namespace GnomeGame {
         private MinigameManager.Ranking _ranking = new();
 
         [SerializeField] List<AssignerPawn> _pawns;
-        private double timer = 30.0;
+        private double timer = -1.0;
         private int deaths = 0;
 
         // Picks which player to be the robot and sets the rest to gnomes
@@ -24,8 +24,7 @@ namespace GnomeGame {
                 AssignerPawn pawn = _pawns[i];
                 pawn.AssignPlayerType(robotIndex);
             }
-
-            // TODO: begin timer
+            
             timer = 30.0;
         }
 
