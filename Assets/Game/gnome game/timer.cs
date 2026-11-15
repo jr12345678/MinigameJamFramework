@@ -1,5 +1,5 @@
 using UnityEngine;
-
+namespace GnomeGame{
 public class SprayTimer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,4 +31,5 @@ public class SprayTimer : MonoBehaviour
             //startTimer();
         }
     }
+}
 }

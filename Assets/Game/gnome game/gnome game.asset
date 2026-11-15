@@ -15,8 +15,8 @@ MonoBehaviour:
   minigameName: Gnome game
   thumbnail: {fileID: 21300000, guid: 496b0cf2004e19e4989eca0487f8335e, type: 3}
   scene:
-    m_SceneAsset: {fileID: 102900000, guid: f063c8c7f1af1ca4a8becc7195086551, type: 3}
-    m_SceneName: gnome_james
+    m_SceneAsset: {fileID: 102900000, guid: 0a1e51a9b55982e4fa05c0b965868277, type: 3}
+    m_SceneName: gnome_james_timed
   minimumPlayers: 1
   description: Knock the other players off of the shrinking iceberg. Roll around to increase in size. Be the last player to survive.
   controls: <sprite name="XBOX_LEFT_STICK"> - Roll
