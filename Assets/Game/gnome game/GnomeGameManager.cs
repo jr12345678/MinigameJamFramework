@@ -53,7 +53,6 @@ namespace GnomeGame {
             if (timer <= 0.0) {
                 for (int i = 0; i < PlayerManager.GetNumPlayers(); i++) {
                     // Player is a surviving gnome and gets first place
-                    print("setting scores");
                     if (_pawns[i].IsGnome()) {
                         _ranking[i] = 1;
                     }
