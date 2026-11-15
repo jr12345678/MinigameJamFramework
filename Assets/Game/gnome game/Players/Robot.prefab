@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7912695152949336110}
   - component: {fileID: 2922449679118865103}
-  - component: {fileID: 4924993122626643691}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,18 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &4924993122626643691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858945422225248560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a0ea00130c35f49a52662dde305edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GnomeGame.Billboard
 --- !u!1 &4260975914589935014
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +105,7 @@ GameObject:
   - component: {fileID: 6392763871359263655}
   - component: {fileID: 7773720071451024032}
   - component: {fileID: -5393350507137466878}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GnomeGame.Robot
   moveSpeed: 2
-  ballSpeed: 150
+  ballSpeed: 1200
   crosshairSprite: {fileID: 2922449679118865103}
   b: {fileID: 3463245108973417856, guid: dc6ba7b3f03314f4d82fe7d0d46578e7, type: 3}
 --- !u!54 &6392763871359263655
@@ -217,5 +204,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626dd3260f301aa4eac8a9ea0e86e6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  cooldown: 0.5
+  cooldown: 0.03125
   ticking: 0

@@ -7,6 +7,10 @@ namespace GnomeGame {
         [SerializeField] private float jumpForce = 6;
         [SerializeField] private float moveSpeed = 2;
         [SerializeField] private SpriteRenderer outlineSprite;
+        
+        // Audio Clips
+        [SerializeField] private AudioClip jumpSound, deathSound;
+        private AudioSource aus;
 
         // Movement logic
         bool grounded = true;
@@ -15,10 +19,13 @@ namespace GnomeGame {
 
         private GnomeGameManager manager;
         private int pawnIndex;
+        private bool dead = false;
 
         void Start() {
             p = GetComponent<Rigidbody>();
             manager = FindAnyObjectByType<GnomeGameManager>();
+
+            aus = transform.parent.GetComponent<AudioSource>();
         }
 
         public void SetPlayerColor(int playerIndex) {
@@ -43,6 +50,10 @@ namespace GnomeGame {
         // triggers a jump if able
         public void TriggerJump() {
             if (grounded) {
+                grounded = false;
+                aus.clip = jumpSound;
+                aus.Play();
+                print(aus);
                 p.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             }
         }
@@ -53,7 +64,7 @@ namespace GnomeGame {
         // Additionally should respond to being hit by water
         // Water should be on layer 15 "Projectile"
         void OnCollisionEnter(Collision collision) {
-            if (collision.gameObject.layer == 10) {
+            if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
                 grounded = true;
             }
             if (collision.gameObject.layer == 15) {
@@ -72,8 +83,13 @@ namespace GnomeGame {
 // =====================================================================================================
         //Kills and removes a gnome
         private void Die() {
-            manager.GnomeDeath(pawnIndex);
-            Destroy(this.gameObject);
+            if (!dead) {
+                dead = true;
+                manager.GnomeDeath(pawnIndex);
+                aus.clip = deathSound;
+                aus.Play();
+                Destroy(this.gameObject);
+            }
         }
     }
 }
