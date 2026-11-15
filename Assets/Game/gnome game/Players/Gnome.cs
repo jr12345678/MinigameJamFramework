@@ -16,6 +16,12 @@ namespace GnomeGame {
             p = GetComponent<Rigidbody>();
         }
 
+        public void SetPlayerColor(int playerIndex) {
+            Color[] playerColors = new Color[] { Color.blue, Color.red, Color.green, Color.yellow };
+
+            // TODO update color indicator in some way
+        }
+
 // =====================================================================================================
         // Applies movement input
         void Update() {

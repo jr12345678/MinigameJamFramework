@@ -34,17 +34,13 @@ namespace GnomeGame {
                 var placementIndex = playerIndex;
                 if (robotIndex < playerIndex) placementIndex--; // shift down by one if placed the robot already
                 gnome.transform.position = leftmostGnomePlacement + Vector3.right * gnomePlacementOffset * placementIndex;
-
-                // TODO
-                // Assign gnome specific color
+                gnome.SetPlayerColor(playerIndex);
             }
             else
             { // Assigned to robot
                 robot = Instantiate(robotPrefab, transform).GetComponent<Robot>();
                 robot.transform.position = robotPlacement;
-                
-                // TODO
-                // Assign robot specific color
+                robot.SetPlayerColor(playerIndex);
             }
         }
 

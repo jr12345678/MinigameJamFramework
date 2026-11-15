@@ -6,9 +6,16 @@ using UnityEngine;
 namespace GnomeGame {
     public class Billboard : MonoBehaviour
     {
+        Camera currentCamera;
+
+        void Start() {
+            currentCamera = FindAnyObjectByType<Camera>();
+        }
+
+
         // After everything else has been processed, garauntee this object's rotation
         void LateUpdate() {
-            transform.LookAt(Camera.main.transform.position);
+            transform.LookAt(currentCamera.transform.position);
         }
     }
 }

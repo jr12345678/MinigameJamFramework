@@ -1,3 +1,4 @@
+using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
 using UnityEngine;
 
 namespace GnomeGame {
@@ -5,6 +6,9 @@ namespace GnomeGame {
     {
         // Parameters
         [SerializeField] private float moveSpeed = 2;
+
+        // References
+        [SerializeField] SpriteRenderer crosshairSprite;
 
         // Movement logic
         Rigidbody p;
@@ -15,6 +19,12 @@ namespace GnomeGame {
 
         void Start() {
             p = GetComponent<Rigidbody>();
+        }
+
+        public void SetPlayerColor(int playerIndex) {
+            Color[] playerColors = new Color[] { Color.blue, Color.red, Color.green, Color.yellow };
+
+            crosshairSprite.color = playerColors[playerIndex];
         }
 
 // =====================================================================================================
