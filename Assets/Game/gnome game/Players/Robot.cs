@@ -1,4 +1,6 @@
 using Game.MinigameFramework.Scripts.Framework.PlayerInfo;
+using System.Timers;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace GnomeGame {
@@ -10,6 +12,8 @@ namespace GnomeGame {
         // References
         [SerializeField] SpriteRenderer crosshairSprite;
 
+        SprayTimer t;
+
         // Movement logic
         Rigidbody p;
         Vector2 moveInput = Vector2.zero;
@@ -19,6 +23,7 @@ namespace GnomeGame {
 
         void Start() {
             p = GetComponent<Rigidbody>();
+            t = GetComponent<SprayTimer>();
         }
 
         public void SetPlayerColor(int playerIndex) {
@@ -34,7 +39,10 @@ namespace GnomeGame {
             p.AddForce(new Vector3(moveInput.x, moveInput.y, 0).normalized * moveSpeed);
 
             if (spraying) {
-                print("Robot is spraying");
+                if (!t.ticking) {
+                    print("baller");
+                    t.startTimer();
+                }
             }
         }
 
