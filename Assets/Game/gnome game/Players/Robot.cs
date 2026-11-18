@@ -11,6 +11,7 @@ namespace GnomeGame {
         [SerializeField] private float moveSpeed = 2;
 
         [SerializeField] private float ballSpeed = 2;
+        private float startMoveSpeed;
 
         // References
         [SerializeField] SpriteRenderer crosshairSprite;
@@ -30,7 +31,8 @@ namespace GnomeGame {
         void Start() {
             p = GetComponent<Rigidbody>();
             t = GetComponent<SprayTimer>();
-            
+
+            startMoveSpeed = moveSpeed;
         }
 
         public void SetPlayerColor(int playerIndex) {
@@ -42,6 +44,9 @@ namespace GnomeGame {
 // =====================================================================================================
         // Applies movement input
         void Update() {
+            moveSpeed = startMoveSpeed * (float)(1 - GnomeGameManager.instance.getTime() / 45.0 + 1);
+            if (!spraying) moveSpeed *= 2.0f;
+            
             // apply movement
             p.AddForce(new Vector3(moveInput.x, moveInput.y, 0).normalized * moveSpeed);
 

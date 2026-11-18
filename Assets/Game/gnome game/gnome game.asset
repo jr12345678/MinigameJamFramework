@@ -12,13 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65074faa8a836848ae4203c738fad3b, type: 3}
   m_Name: gnome game
   m_EditorClassIdentifier: 
-  minigameName: Gnome game
-  thumbnail: {fileID: 21300000, guid: 496b0cf2004e19e4989eca0487f8335e, type: 3}
+  minigameName: Fear of the Un-Gnome
+  thumbnail: {fileID: 21300000, guid: 022ec89acd797a04dbd9e1fb53e14aa1, type: 3}
   scene:
-    m_SceneAsset: {fileID: 102900000, guid: 0a1e51a9b55982e4fa05c0b965868277, type: 3}
-    m_SceneName: gnome_james_timed
-  minimumPlayers: 1
-  description: Knock the other players off of the shrinking iceberg. Roll around to increase in size. Be the last player to survive.
-  controls: <sprite name="XBOX_LEFT_STICK"> - Roll
-  credits: Created by Jay Ignatowski
+    m_SceneAsset: {fileID: 102900000, guid: f063c8c7f1af1ca4a8becc7195086551, type: 3}
+    m_SceneName: gnome_james
+  minimumPlayers: 2
+  description: 'Gnomes: move and jump to survive the evil pool cleaner robot
+
+    Robot: blast the gnomes with a jet of water'
+  controls: '<sprite name="XBOX_LEFT_STICK"> - Move
+
+    <sprite name="XBOX_A"> - Jump/Shoot'
+  credits: 'John Ristuccia
+
+    James Prendergast
+
+    Evan Ricket
+
+    Alex Bavey'
   attributions: 

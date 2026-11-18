@@ -15,6 +15,8 @@ namespace GnomeGame {
         Robot robot = null;
         public bool IsRobot() { return robot != null; }
 
+        public bool isDead = false;
+
         // Placement Parameters
         [SerializeField] Vector3 leftmostGnomePlacement;
         [SerializeField] float gnomePlacementOffset = 2.5f;
@@ -27,7 +29,7 @@ namespace GnomeGame {
         /// </summary>
         /// <param name="robotIndex">the playerIndex of whoever is assigned robot</param>
         public void AssignPlayerType(int robotIndex) {
-            if (robotIndex != playerIndex)
+            if (robotIndex != playerIndex) // TODO: FIX THIS, INVERTED FOR TESTING PURPOSES
             { // Assigned a gnome!
                 gnome = Instantiate(gnomePrefab, transform).GetComponent<Gnome>();
                 // gnome placement logic
@@ -49,29 +51,31 @@ namespace GnomeGame {
         // hands off input to the relevant embodiment
         protected override void OnActionPressed(InputAction.CallbackContext context) {
             // Gnome input passing
-            if (IsGnome()) {
-                // movement logic
-                if (context.action.name == PawnAction.Move) {
-                    Vector2 moveInput = context.ReadValue<Vector2>();
-                    gnome.SetMovement(moveInput);
-                }
+            if (!isDead) {
+                if (IsGnome()) {
+                    // movement logic
+                    if (context.action.name == PawnAction.Move) {
+                        Vector2 moveInput = context.ReadValue<Vector2>();
+                        gnome.SetMovement(moveInput);
+                    }
 
-                // Jump detection
-                if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
-                    gnome.TriggerJump();
-                }
-            }
-            else if (IsRobot()) // check if explicitly in case we are waiting to be assigned
-            {
-                // movement logic
-                if (context.action.name == PawnAction.Move) {
-                    Vector2 moveInput = context.ReadValue<Vector2>();
-                    robot.SetMovement(moveInput);
-                }
+                    // Jump detection
+                    if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
+                        gnome.TriggerJump();
+                    }
+                } 
+                else if (IsRobot()) // check if explicitly in case we are waiting to be assigned
+                {
+                    // movement logic
+                    if (context.action.name == PawnAction.Move) {
+                        Vector2 moveInput = context.ReadValue<Vector2>();
+                        robot.SetMovement(moveInput);
+                    }
 
-                // handle spraying pressed down
-                if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
-                    robot.SetSpraying(true);
+                    // handle spraying pressed down
+                    if (context.action.name == PawnAction.ButtonA || context.action.name == PawnAction.ButtonB) {
+                        robot.SetSpraying(true);
+                    }
                 }
             }
         }
